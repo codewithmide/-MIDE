@@ -71,15 +71,15 @@ pub fn execute(
             amount,
             expires,
         } => execute_decrease_allowance(deps, env, info, spender, amount, expires),
-        // Funtion that allows the token owner to transfer thier token 
+        // Funtion that allows the token owner to transfer thier token
         ExecuteMsg::TransferFrom {
             owner,
             recipient,
             amount,
         } => execute_transfer_from(deps, env, info, owner, recipient, amount),
-        // Funtion that allows the token owner to mint thier token 
+        // Funtion that allows the token owner to mint thier token
         ExecuteMsg::BurnFrom { owner, amount } => execute_burn_from(deps, env, info, owner, amount),
-        // Funtion that allows the token owner to send thier token 
+        // Funtion that allows the token owner to send thier token
         ExecuteMsg::SendFrom {
             owner,
             contract,
@@ -103,7 +103,7 @@ pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
     match msg {
         // unction to check a user balance
         QueryMsg::Balance { address } => to_binary(&query_balance(deps, address)?),
-        // Function to check the token info of a user 
+        // Function to check the token info of a user
         QueryMsg::TokenInfo {} => to_binary(&query_token_info(deps)?),
         // Function to check who can mint a token
         QueryMsg::Minter {} => to_binary(&query_minter(deps)?),
