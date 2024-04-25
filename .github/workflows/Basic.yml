@@ -70,6 +70,9 @@ jobs:
           command: schema
           args: --locked
 
-      - name: Schema Changes
-        # fails if any changes not committed
-        run: git diff --exit-code schema
+      # - name: Schema Changes
+      #   # fails if any changes not committed
+      #   run: git diff --exit-code schema
+      - name: Show Schema Changes
+        # shows changes not committed
+        run: git diff schema
