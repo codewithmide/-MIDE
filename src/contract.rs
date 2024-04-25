@@ -34,7 +34,7 @@ pub fn instantiate(
 ) -> Result<Response, ContractError> {
     set_contract_version(deps.storage, CONTRACT_NAME, CONTRACT_VERSION)?;
 
-    Ok(cw20_base::contract::instantiate(deps, env, info, msg)?)
+    cw20_base::contract::instantiate(deps, env, info, msg)
 }
 
 #[cfg_attr(not(feature = "library"), entry_point)]
